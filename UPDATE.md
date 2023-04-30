@@ -33,14 +33,15 @@
 
 ## v1.3 更新日志
 
-1. 引入了 `SafeMath` 库，并使用 `SafeMath` 中的 `add` 函数替换了所有的 `+` 运算。
-2. 将合约名称从 `Factory` 更改为 `FactoryTest`。
-3. 在 `createProduct` 函数中，新增了对产品生产商名称、产品名称以及生产日期和到期日期的合法性检查。
-4. 新增 `ProductCreated` 事件，当创建新产品时触发。
-5. 将 `createProduct` 函数的参数从 `memory` 类型更改为 `calldata` 类型，以节省 gas 成本。
-6. 移除了 `createProduct` 函数中的 `calculatePrice` 函数调用，价格作为参数直接传入。
-7. 新增了 `createProductsBatch` 函数，允许批量创建产品。
-8. 优化了 `calculatePrice` 函数的逻辑，使用了三元运算符替换了原来的 `if-else` 语句。
-9. 新增了 `updatePricesBatch` 函数，允许批量更新产品价格。
-10. 在 `calculateAveragePrice` 和 `getExpiringProducts` 函数中，将 `tokenCounter` 的值提前赋值给一个变量，以减少多次访问 `tokenCounter` 的 gas 成本。
-11. 优化了 `getProductsByManufacturer` 函数，将生产商名称的哈希计算提前到循环外部进行。
+1. 将合约名称从 `Factory` 更改为 `FactoryTest2`。
+2. 引入了 `SafeMath` 库，并使用 `SafeMath` 中的 `add` 函数替换了所有的 `+` 运算。
+3. 将合约名称从 `Factory` 更改为 `FactoryTest`。
+4. 在 `createProduct` 函数中，新增了对产品生产商名称、产品名称以及生产日期和到期日期的合法性检查。
+5. 新增 `ProductCreated` 事件，当创建新产品时触发。
+6. 将 `createProduct` 函数的参数从 `memory` 类型更改为 `calldata` 类型，以节省 gas 成本。
+7. 移除了 `createProduct` 函数中的 `calculatePrice` 函数调用，价格作为参数直接传入。
+8. 新增了 `createProductsBatch` 函数，允许批量创建产品。
+9. 优化了 `calculatePrice` 函数的逻辑，使用了三元运算符替换了原来的 `if-else` 语句。
+10. 新增了 `updatePricesBatch` 函数，允许批量更新产品价格。
+11. 在 `calculateAveragePrice` 和 `getExpiringProducts` 函数中，将 `tokenCounter` 的值提前赋值给一个变量，以减少多次访问 `tokenCounter` 的 gas 成本。
+12. 优化了 `getProductsByManufacturer` 函数，将生产商名称的哈希计算提前到循环外部进行。

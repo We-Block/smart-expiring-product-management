@@ -1,0 +1,25 @@
+{
+  "name": "smart-expiring-product-management",
+  "version": "1.0.0",
+  "description": "FactoryNFT is a decentralized platform that leverages the power of blockchain technology to create and manage unique, non-fungible tokens (NFTs) representing physical products. By utilizing ERC721, FactoryNFT enables users to mint, own, and trade NFTs representing a diverse range of items, from limited-edition collectibles to high-value assets. With an emphasis on security and transparency, FactoryNFT integrates OpenZeppelin's battle-tested smart contracts to ensure a seamless and secure experience for users. Furthermore, FactoryNFT offers features such as batch creation, dynamic pricing, and advanced filtering options, enabling a streamlined and efficient management system for both manufacturers and collectors alike. Join FactoryNFT today and experience the future of product ownership and trading on the blockchain.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w33d-w33d/smart-expiring-product-management.git"
+  },
+  "keywords": [
+    "blockchain"
+  ],
+  "author": "w33d",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w33d-w33d/smart-expiring-product-management/issues"
+  },
+  "homepage": "https://github.com/w33d-w33d/smart-expiring-product-management#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.3"
+  }
+}
