@@ -27,6 +27,7 @@ contract FactoryTest2 is ERC721, Ownable {
 
     event ProductCreated(uint256 indexed tokenId, string manufacturer, string name, uint256 manufactureDate, uint256 expiryDate, bool isQualityProduct, uint256 price);
 
+    
     function createProduct(
         string calldata _manufacturer,
         string calldata _name,
