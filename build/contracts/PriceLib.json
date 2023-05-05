@@ -1,9 +1,9 @@
 {
   "contractName": "PriceLib",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PriceLib.sol\":\"PriceLib\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/PriceLib.sol\":{\"keccak256\":\"0x34f562fa03182e2991d044b4b5c9c3b53b398829dca908980d093db660e1fc59\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://895bc00398e69307413afc0ed736f323f6817c334ce62b52373df6eb47f3286b\",\"dweb:/ipfs/QmaGftU4UAvgcaKK9jhG3KxxWzR1jAdJfsqEd3ibsXn2V9\"]},\"project:/contracts/ProductLib.sol\":{\"keccak256\":\"0x280351c10336512a3b014c2398a419c163b57eea44542ed20fecea0c67005042\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://04c8df5246f6ce80646de95879ff9f4b206dd2eba0daede6767304ca449b0d9d\",\"dweb:/ipfs/QmUdJHg5qxkCCMhKinA5TvfLYSdr2x8rmtidFSD3tcTcQk\"]}},\"version\":1}",
-  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220596239147d8494b5805a9a18e8b149562f99aee3b9c6d6b22fabd9c8e8561d1b64736f6c63430008130033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220596239147d8494b5805a9a18e8b149562f99aee3b9c6d6b22fabd9c8e8561d1b64736f6c63430008130033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PriceLib.sol\":\"PriceLib\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/PriceLib.sol\":{\"keccak256\":\"0x34f562fa03182e2991d044b4b5c9c3b53b398829dca908980d093db660e1fc59\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://895bc00398e69307413afc0ed736f323f6817c334ce62b52373df6eb47f3286b\",\"dweb:/ipfs/QmaGftU4UAvgcaKK9jhG3KxxWzR1jAdJfsqEd3ibsXn2V9\"]},\"project:/contracts/ProductLib.sol\":{\"keccak256\":\"0x29808c162d641c008108a71db09b48e6d19f25bcaae3d9f3974e5a662de12b39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1863cd34bd60b2cf79bcac4e85a1f4dd2fb329517f5b7917a19b59ed053cba7e\",\"dweb:/ipfs/QmeSwaczC8yDgFQyCMfDngUuwQpuRMFVqXuByEjq8GLzyu\"]}},\"version\":1}",
+  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122095c98d2e03cf29175b39d98f808e6a0c54cf42ee1b0fb06f455298d72fde54eb64736f6c63430008130033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122095c98d2e03cf29175b39d98f808e6a0c54cf42ee1b0fb06f455298d72fde54eb64736f6c63430008130033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
@@ -15,18 +15,18 @@
     "absolutePath": "project:/contracts/PriceLib.sol",
     "exportedSymbols": {
       "PriceLib": [
-        3505
+        3510
       ],
       "ProductLib": [
-        3554
+        3567
       ]
     },
-    "id": 3506,
+    "id": 3511,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3425,
+        "id": 3430,
         "literals": [
           "solidity",
           "^",
@@ -39,11 +39,11 @@
       {
         "absolutePath": "project:/contracts/ProductLib.sol",
         "file": "./ProductLib.sol",
-        "id": 3426,
+        "id": 3431,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 3506,
-        "sourceUnit": 3555,
+        "scope": 3511,
+        "sourceUnit": 3568,
         "src": "60:26:14",
         "symbolAliases": [],
         "unitAlias": ""
@@ -55,9 +55,9 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 3505,
+        "id": 3510,
         "linearizedBaseContracts": [
-          3505
+          3510
         ],
         "name": "PriceLib",
         "nameLocation": "98:8:14",
@@ -65,12 +65,12 @@
         "nodes": [
           {
             "constant": true,
-            "id": 3429,
+            "id": 3434,
             "mutability": "constant",
             "name": "THIRTY_DAYS",
             "nameLocation": "131:11:14",
             "nodeType": "VariableDeclaration",
-            "scope": 3505,
+            "scope": 3510,
             "src": "114:33:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -79,7 +79,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3427,
+              "id": 3432,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "114:7:14",
@@ -90,7 +90,7 @@
             },
             "value": {
               "hexValue": "3330",
-              "id": 3428,
+              "id": 3433,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -108,12 +108,12 @@
           },
           {
             "constant": true,
-            "id": 3432,
+            "id": 3437,
             "mutability": "constant",
             "name": "SEVEN_DAYS",
             "nameLocation": "171:10:14",
             "nodeType": "VariableDeclaration",
-            "scope": 3505,
+            "scope": 3510,
             "src": "154:31:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -122,7 +122,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3430,
+              "id": 3435,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "154:7:14",
@@ -133,7 +133,7 @@
             },
             "value": {
               "hexValue": "37",
-              "id": 3431,
+              "id": 3436,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -151,12 +151,12 @@
           },
           {
             "constant": true,
-            "id": 3435,
+            "id": 3440,
             "mutability": "constant",
             "name": "PRICE_30_DAYS",
             "nameLocation": "209:13:14",
             "nodeType": "VariableDeclaration",
-            "scope": 3505,
+            "scope": 3510,
             "src": "192:37:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -165,7 +165,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3433,
+              "id": 3438,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "192:7:14",
@@ -176,7 +176,7 @@
             },
             "value": {
               "hexValue": "31303030",
-              "id": 3434,
+              "id": 3439,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -194,12 +194,12 @@
           },
           {
             "constant": true,
-            "id": 3438,
+            "id": 3443,
             "mutability": "constant",
             "name": "PRICE_7_DAYS",
             "nameLocation": "253:12:14",
             "nodeType": "VariableDeclaration",
-            "scope": 3505,
+            "scope": 3510,
             "src": "236:35:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -208,7 +208,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3436,
+              "id": 3441,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "236:7:14",
@@ -219,7 +219,7 @@
             },
             "value": {
               "hexValue": "383030",
-              "id": 3437,
+              "id": 3442,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -237,12 +237,12 @@
           },
           {
             "constant": true,
-            "id": 3441,
+            "id": 3446,
             "mutability": "constant",
             "name": "PRICE_LESS_7_DAYS",
             "nameLocation": "295:17:14",
             "nodeType": "VariableDeclaration",
-            "scope": 3505,
+            "scope": 3510,
             "src": "278:40:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -251,7 +251,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3439,
+              "id": 3444,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "278:7:14",
@@ -262,7 +262,7 @@
             },
             "value": {
               "hexValue": "353030",
-              "id": 3440,
+              "id": 3445,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -280,12 +280,12 @@
           },
           {
             "constant": true,
-            "id": 3444,
+            "id": 3449,
             "mutability": "constant",
             "name": "SECONDS_IN_DAY",
             "nameLocation": "342:14:14",
             "nodeType": "VariableDeclaration",
-            "scope": 3505,
+            "scope": 3510,
             "src": "325:39:14",
             "stateVariable": true,
             "storageLocation": "default",
@@ -294,7 +294,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3442,
+              "id": 3447,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "325:7:14",
@@ -305,7 +305,7 @@
             },
             "value": {
               "hexValue": "3836343030",
-              "id": 3443,
+              "id": 3448,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -323,7 +323,7 @@
           },
           {
             "body": {
-              "id": 3482,
+              "id": 3487,
               "nodeType": "Block",
               "src": "456:320:14",
               "statements": [
@@ -335,17 +335,17 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 3455,
+                        "id": 3460,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 3452,
+                          "id": 3457,
                           "name": "productExpiryDate",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3446,
+                          "referencedDeclaration": 3451,
                           "src": "475:17:14",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -356,7 +356,7 @@
                         "operator": ">",
                         "rightExpression": {
                           "expression": {
-                            "id": 3453,
+                            "id": 3458,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -367,7 +367,7 @@
                               "typeString": "block"
                             }
                           },
-                          "id": 3454,
+                          "id": 3459,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -389,7 +389,7 @@
                       },
                       {
                         "hexValue": "4578706972792064617465206d75737420626520696e2074686520667574757265",
-                        "id": 3456,
+                        "id": 3461,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -415,7 +415,7 @@
                           "typeString": "literal_string \"Expiry date must be in the future\""
                         }
                       ],
-                      "id": 3451,
+                      "id": 3456,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -429,7 +429,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 3457,
+                    "id": 3462,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -445,23 +445,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3458,
+                  "id": 3463,
                   "nodeType": "ExpressionStatement",
                   "src": "467:81:14"
                 },
                 {
                   "assignments": [
-                    3460
+                    3465
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 3460,
+                      "id": 3465,
                       "mutability": "mutable",
                       "name": "remainingDays",
                       "nameLocation": "569:13:14",
                       "nodeType": "VariableDeclaration",
-                      "scope": 3482,
+                      "scope": 3487,
                       "src": "561:21:14",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -470,7 +470,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 3459,
+                        "id": 3464,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "561:7:14",
@@ -482,13 +482,13 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 3468,
+                  "id": 3473,
                   "initialValue": {
                     "commonType": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 3467,
+                    "id": 3472,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -500,17 +500,17 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 3464,
+                          "id": 3469,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
-                            "id": 3461,
+                            "id": 3466,
                             "name": "productExpiryDate",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3446,
+                            "referencedDeclaration": 3451,
                             "src": "586:17:14",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -521,7 +521,7 @@
                           "operator": "-",
                           "rightExpression": {
                             "expression": {
-                              "id": 3462,
+                              "id": 3467,
                               "name": "block",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
@@ -532,7 +532,7 @@
                                 "typeString": "block"
                               }
                             },
-                            "id": 3463,
+                            "id": 3468,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -553,7 +553,7 @@
                           }
                         }
                       ],
-                      "id": 3465,
+                      "id": 3470,
                       "isConstant": false,
                       "isInlineArray": false,
                       "isLValue": false,
@@ -569,11 +569,11 @@
                     "nodeType": "BinaryOperation",
                     "operator": "/",
                     "rightExpression": {
-                      "id": 3466,
+                      "id": 3471,
                       "name": "SECONDS_IN_DAY",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3444,
+                      "referencedDeclaration": 3449,
                       "src": "625:14:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -596,17 +596,17 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 3471,
+                      "id": 3476,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "leftExpression": {
-                        "id": 3469,
+                        "id": 3474,
                         "name": "remainingDays",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3460,
+                        "referencedDeclaration": 3465,
                         "src": "659:13:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -616,11 +616,11 @@
                       "nodeType": "BinaryOperation",
                       "operator": ">",
                       "rightExpression": {
-                        "id": 3470,
+                        "id": 3475,
                         "name": "THIRTY_DAYS",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3429,
+                        "referencedDeclaration": 3434,
                         "src": "675:11:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -641,17 +641,17 @@
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             },
-                            "id": 3475,
+                            "id": 3480,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftExpression": {
-                              "id": 3473,
+                              "id": 3478,
                               "name": "remainingDays",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3460,
+                              "referencedDeclaration": 3465,
                               "src": "706:13:14",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -661,11 +661,11 @@
                             "nodeType": "BinaryOperation",
                             "operator": ">",
                             "rightExpression": {
-                              "id": 3474,
+                              "id": 3479,
                               "name": "SEVEN_DAYS",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3432,
+                              "referencedDeclaration": 3437,
                               "src": "722:10:14",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -679,18 +679,18 @@
                             }
                           },
                           "falseExpression": {
-                            "id": 3477,
+                            "id": 3482,
                             "name": "PRICE_LESS_7_DAYS",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3441,
+                            "referencedDeclaration": 3446,
                             "src": "750:17:14",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "id": 3478,
+                          "id": 3483,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -698,11 +698,11 @@
                           "nodeType": "Conditional",
                           "src": "706:61:14",
                           "trueExpression": {
-                            "id": 3476,
+                            "id": 3481,
                             "name": "PRICE_7_DAYS",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3438,
+                            "referencedDeclaration": 3443,
                             "src": "735:12:14",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -715,7 +715,7 @@
                           }
                         }
                       ],
-                      "id": 3479,
+                      "id": 3484,
                       "isConstant": false,
                       "isInlineArray": false,
                       "isLValue": false,
@@ -728,7 +728,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 3480,
+                    "id": 3485,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -736,11 +736,11 @@
                     "nodeType": "Conditional",
                     "src": "659:109:14",
                     "trueExpression": {
-                      "id": 3472,
+                      "id": 3477,
                       "name": "PRICE_30_DAYS",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3435,
+                      "referencedDeclaration": 3440,
                       "src": "689:13:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -752,14 +752,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 3450,
-                  "id": 3481,
+                  "functionReturnParameters": 3455,
+                  "id": 3486,
                   "nodeType": "Return",
                   "src": "652:116:14"
                 }
               ]
             },
-            "id": 3483,
+            "id": 3488,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -767,17 +767,17 @@
             "nameLocation": "382:14:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3447,
+              "id": 3452,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3446,
+                  "id": 3451,
                   "mutability": "mutable",
                   "name": "productExpiryDate",
                   "nameLocation": "405:17:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3483,
+                  "scope": 3488,
                   "src": "397:25:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -786,7 +786,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3445,
+                    "id": 3450,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "397:7:14",
@@ -801,17 +801,17 @@
               "src": "396:27:14"
             },
             "returnParameters": {
-              "id": 3450,
+              "id": 3455,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3449,
+                  "id": 3454,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3483,
+                  "scope": 3488,
                   "src": "447:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -820,7 +820,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3448,
+                    "id": 3453,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "447:7:14",
@@ -834,7 +834,7 @@
               ],
               "src": "446:9:14"
             },
-            "scope": 3505,
+            "scope": 3510,
             "src": "373:403:14",
             "stateMutability": "view",
             "virtual": false,
@@ -842,31 +842,31 @@
           },
           {
             "body": {
-              "id": 3503,
+              "id": 3508,
               "nodeType": "Block",
               "src": "868:100:14",
               "statements": [
                 {
                   "expression": {
-                    "id": 3498,
+                    "id": 3503,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 3491,
+                        "id": 3496,
                         "name": "product",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3486,
+                        "referencedDeclaration": 3491,
                         "src": "879:7:14",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Product_$3520_storage_ptr",
+                          "typeIdentifier": "t_struct$_Product_$3532_storage_ptr",
                           "typeString": "struct ProductLib.Product storage pointer"
                         }
                       },
-                      "id": 3493,
+                      "id": 3498,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -874,7 +874,7 @@
                       "memberLocation": "887:5:14",
                       "memberName": "price",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3519,
+                      "referencedDeclaration": 3531,
                       "src": "879:13:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -887,18 +887,18 @@
                       "arguments": [
                         {
                           "expression": {
-                            "id": 3495,
+                            "id": 3500,
                             "name": "product",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3486,
+                            "referencedDeclaration": 3491,
                             "src": "910:7:14",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Product_$3520_storage_ptr",
+                              "typeIdentifier": "t_struct$_Product_$3532_storage_ptr",
                               "typeString": "struct ProductLib.Product storage pointer"
                             }
                           },
-                          "id": 3496,
+                          "id": 3501,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -906,7 +906,7 @@
                           "memberLocation": "918:10:14",
                           "memberName": "expiryDate",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 3515,
+                          "referencedDeclaration": 3525,
                           "src": "910:18:14",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -921,18 +921,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 3494,
+                        "id": 3499,
                         "name": "calculatePrice",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3483,
+                        "referencedDeclaration": 3488,
                         "src": "895:14:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_uint256_$",
                           "typeString": "function (uint256) view returns (uint256)"
                         }
                       },
-                      "id": 3497,
+                      "id": 3502,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -954,25 +954,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 3499,
+                  "id": 3504,
                   "nodeType": "ExpressionStatement",
                   "src": "879:50:14"
                 },
                 {
                   "expression": {
                     "expression": {
-                      "id": 3500,
+                      "id": 3505,
                       "name": "product",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3486,
+                      "referencedDeclaration": 3491,
                       "src": "947:7:14",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Product_$3520_storage_ptr",
+                        "typeIdentifier": "t_struct$_Product_$3532_storage_ptr",
                         "typeString": "struct ProductLib.Product storage pointer"
                       }
                     },
-                    "id": 3501,
+                    "id": 3506,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -980,21 +980,21 @@
                     "memberLocation": "955:5:14",
                     "memberName": "price",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 3519,
+                    "referencedDeclaration": 3531,
                     "src": "947:13:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 3490,
-                  "id": 3502,
+                  "functionReturnParameters": 3495,
+                  "id": 3507,
                   "nodeType": "Return",
                   "src": "940:20:14"
                 }
               ]
             },
-            "id": 3504,
+            "id": 3509,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1002,42 +1002,42 @@
             "nameLocation": "793:11:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3487,
+              "id": 3492,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3486,
+                  "id": 3491,
                   "mutability": "mutable",
                   "name": "product",
                   "nameLocation": "832:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3504,
+                  "scope": 3509,
                   "src": "805:34:14",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Product_$3520_storage_ptr",
+                    "typeIdentifier": "t_struct$_Product_$3532_storage_ptr",
                     "typeString": "struct ProductLib.Product"
                   },
                   "typeName": {
-                    "id": 3485,
+                    "id": 3490,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3484,
+                      "id": 3489,
                       "name": "ProductLib.Product",
                       "nameLocations": [
                         "805:10:14",
                         "816:7:14"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3520,
+                      "referencedDeclaration": 3532,
                       "src": "805:18:14"
                     },
-                    "referencedDeclaration": 3520,
+                    "referencedDeclaration": 3532,
                     "src": "805:18:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Product_$3520_storage_ptr",
+                      "typeIdentifier": "t_struct$_Product_$3532_storage_ptr",
                       "typeString": "struct ProductLib.Product"
                     }
                   },
@@ -1047,17 +1047,17 @@
               "src": "804:36:14"
             },
             "returnParameters": {
-              "id": 3490,
+              "id": 3495,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3489,
+                  "id": 3494,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3504,
+                  "scope": 3509,
                   "src": "859:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1066,7 +1066,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3488,
+                    "id": 3493,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "859:7:14",
@@ -1080,14 +1080,14 @@
               ],
               "src": "858:9:14"
             },
-            "scope": 3505,
+            "scope": 3510,
             "src": "784:184:14",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3506,
+        "scope": 3511,
         "src": "90:881:14",
         "usedErrors": []
       }
@@ -1100,7 +1100,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-05-05T13:18:48.670Z",
+  "updatedAt": "2023-05-05T14:06:09.801Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
