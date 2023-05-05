@@ -32,6 +32,7 @@ contract Factory is ERC721, Ownable {
     string constant INVALID_DATES = "Manufacture date should be earlier than expiry date";
     string constant NO_PRODUCTS = "No products available for analysis.";
     string constant NO_VALID_PRODUCTS = "No valid products available for analysis.";
+    string constant WRONG_PRICE = "Price must be greater than 0";
 
     constructor() ERC721("Factory", "FACTORY") {
         tokenCounter = 0;
@@ -59,6 +60,7 @@ contract Factory is ERC721, Ownable {
         require(bytes(productManufacturer).length > 0, EMPTY_MANUFACTURER);
         require(bytes(productName).length > 0, EMPTY_NAME);
         require(manufactureDate < expiryDate, INVALID_DATES);
+        require(price > 0, WRONG_PRICE);
 
         uint256 tokenId = tokenCounter;
         _safeMint(msg.sender, tokenId);

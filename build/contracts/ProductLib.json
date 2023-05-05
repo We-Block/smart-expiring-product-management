@@ -15,15 +15,15 @@
     "absolutePath": "project:/contracts/ProductLib.sol",
     "exportedSymbols": {
       "ProductLib": [
-        3567
+        3577
       ]
     },
-    "id": 3568,
+    "id": 3578,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3512,
+        "id": 3522,
         "literals": [
           "solidity",
           "^",
@@ -40,15 +40,15 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 3513,
+          "id": 3523,
           "nodeType": "StructuredDocumentation",
           "src": "277:79:15",
           "text": " @notice The Product struct represents information about a product"
         },
         "fullyImplemented": true,
-        "id": 3567,
+        "id": 3577,
         "linearizedBaseContracts": [
-          3567
+          3577
         ],
         "name": "ProductLib",
         "nameLocation": "366:10:15",
@@ -56,16 +56,16 @@
         "nodes": [
           {
             "canonicalName": "ProductLib.Product",
-            "id": 3532,
+            "id": 3542,
             "members": [
               {
                 "constant": false,
-                "id": 3516,
+                "id": 3526,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "449:4:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 3532,
+                "scope": 3542,
                 "src": "442:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -74,7 +74,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3515,
+                  "id": 3525,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "442:6:15",
@@ -87,12 +87,12 @@
               },
               {
                 "constant": false,
-                "id": 3519,
+                "id": 3529,
                 "mutability": "mutable",
                 "name": "manufacturer",
                 "nameLocation": "510:12:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 3532,
+                "scope": 3542,
                 "src": "503:19:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -101,7 +101,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3518,
+                  "id": 3528,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "503:6:15",
@@ -114,12 +114,12 @@
               },
               {
                 "constant": false,
-                "id": 3522,
+                "id": 3532,
                 "mutability": "mutable",
                 "name": "manufactureDate",
                 "nameLocation": "586:15:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 3532,
+                "scope": 3542,
                 "src": "578:23:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -128,7 +128,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3521,
+                  "id": 3531,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "578:7:15",
@@ -141,12 +141,12 @@
               },
               {
                 "constant": false,
-                "id": 3525,
+                "id": 3535,
                 "mutability": "mutable",
                 "name": "expiryDate",
                 "nameLocation": "663:10:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 3532,
+                "scope": 3542,
                 "src": "655:18:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -155,7 +155,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3524,
+                  "id": 3534,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "655:7:15",
@@ -168,12 +168,12 @@
               },
               {
                 "constant": false,
-                "id": 3528,
+                "id": 3538,
                 "mutability": "mutable",
                 "name": "isQualityProduct",
                 "nameLocation": "741:16:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 3532,
+                "scope": 3542,
                 "src": "736:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -182,7 +182,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3527,
+                  "id": 3537,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "736:4:15",
@@ -195,12 +195,12 @@
               },
               {
                 "constant": false,
-                "id": 3531,
+                "id": 3541,
                 "mutability": "mutable",
                 "name": "price",
                 "nameLocation": "809:5:15",
                 "nodeType": "VariableDeclaration",
-                "scope": 3532,
+                "scope": 3542,
                 "src": "801:13:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -209,7 +209,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3530,
+                  "id": 3540,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "801:7:15",
@@ -224,13 +224,13 @@
             "name": "Product",
             "nameLocation": "391:7:15",
             "nodeType": "StructDefinition",
-            "scope": 3567,
+            "scope": 3577,
             "src": "384:434:15",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 3565,
+              "id": 3575,
               "nodeType": "Block",
               "src": "1091:146:15",
               "statements": [
@@ -240,7 +240,7 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 3563,
+                    "id": 3573,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -250,7 +250,7 @@
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
-                      "id": 3557,
+                      "id": 3567,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -260,7 +260,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 3548,
+                        "id": 3558,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -270,18 +270,18 @@
                             "arguments": [
                               {
                                 "expression": {
-                                  "id": 3543,
+                                  "id": 3553,
                                   "name": "product",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 3536,
+                                  "referencedDeclaration": 3546,
                                   "src": "1115:7:15",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Product_$3532_memory_ptr",
+                                    "typeIdentifier": "t_struct$_Product_$3542_memory_ptr",
                                     "typeString": "struct ProductLib.Product memory"
                                   }
                                 },
-                                "id": 3544,
+                                "id": 3554,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
@@ -289,7 +289,7 @@
                                 "memberLocation": "1123:4:15",
                                 "memberName": "name",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 3516,
+                                "referencedDeclaration": 3526,
                                 "src": "1115:12:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_string_memory_ptr",
@@ -304,7 +304,7 @@
                                   "typeString": "string memory"
                                 }
                               ],
-                              "id": 3542,
+                              "id": 3552,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -316,14 +316,14 @@
                                 "typeString": "type(bytes storage pointer)"
                               },
                               "typeName": {
-                                "id": 3541,
+                                "id": 3551,
                                 "name": "bytes",
                                 "nodeType": "ElementaryTypeName",
                                 "src": "1109:5:15",
                                 "typeDescriptions": {}
                               }
                             },
-                            "id": 3545,
+                            "id": 3555,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -339,7 +339,7 @@
                               "typeString": "bytes memory"
                             }
                           },
-                          "id": 3546,
+                          "id": 3556,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -357,7 +357,7 @@
                         "operator": ">",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 3547,
+                          "id": 3557,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -384,7 +384,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 3556,
+                        "id": 3566,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -394,18 +394,18 @@
                             "arguments": [
                               {
                                 "expression": {
-                                  "id": 3551,
+                                  "id": 3561,
                                   "name": "product",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 3536,
+                                  "referencedDeclaration": 3546,
                                   "src": "1149:7:15",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Product_$3532_memory_ptr",
+                                    "typeIdentifier": "t_struct$_Product_$3542_memory_ptr",
                                     "typeString": "struct ProductLib.Product memory"
                                   }
                                 },
-                                "id": 3552,
+                                "id": 3562,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
@@ -413,7 +413,7 @@
                                 "memberLocation": "1157:12:15",
                                 "memberName": "manufacturer",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 3519,
+                                "referencedDeclaration": 3529,
                                 "src": "1149:20:15",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_string_memory_ptr",
@@ -428,7 +428,7 @@
                                   "typeString": "string memory"
                                 }
                               ],
-                              "id": 3550,
+                              "id": 3560,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -440,14 +440,14 @@
                                 "typeString": "type(bytes storage pointer)"
                               },
                               "typeName": {
-                                "id": 3549,
+                                "id": 3559,
                                 "name": "bytes",
                                 "nodeType": "ElementaryTypeName",
                                 "src": "1143:5:15",
                                 "typeDescriptions": {}
                               }
                             },
-                            "id": 3553,
+                            "id": 3563,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -463,7 +463,7 @@
                               "typeString": "bytes memory"
                             }
                           },
-                          "id": 3554,
+                          "id": 3564,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -481,7 +481,7 @@
                         "operator": ">",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 3555,
+                          "id": 3565,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -514,25 +514,25 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 3562,
+                      "id": 3572,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "leftExpression": {
                         "expression": {
-                          "id": 3558,
+                          "id": 3568,
                           "name": "product",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3536,
+                          "referencedDeclaration": 3546,
                           "src": "1185:7:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Product_$3532_memory_ptr",
+                            "typeIdentifier": "t_struct$_Product_$3542_memory_ptr",
                             "typeString": "struct ProductLib.Product memory"
                           }
                         },
-                        "id": 3559,
+                        "id": 3569,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -540,7 +540,7 @@
                         "memberLocation": "1193:15:15",
                         "memberName": "manufactureDate",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 3522,
+                        "referencedDeclaration": 3532,
                         "src": "1185:23:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -551,18 +551,18 @@
                       "operator": "<",
                       "rightExpression": {
                         "expression": {
-                          "id": 3560,
+                          "id": 3570,
                           "name": "product",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3536,
+                          "referencedDeclaration": 3546,
                           "src": "1211:7:15",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Product_$3532_memory_ptr",
+                            "typeIdentifier": "t_struct$_Product_$3542_memory_ptr",
                             "typeString": "struct ProductLib.Product memory"
                           }
                         },
-                        "id": 3561,
+                        "id": 3571,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -570,7 +570,7 @@
                         "memberLocation": "1219:10:15",
                         "memberName": "expiryDate",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 3525,
+                        "referencedDeclaration": 3535,
                         "src": "1211:18:15",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -589,20 +589,20 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 3540,
-                  "id": 3564,
+                  "functionReturnParameters": 3550,
+                  "id": 3574,
                   "nodeType": "Return",
                   "src": "1102:127:15"
                 }
               ]
             },
             "documentation": {
-              "id": 3533,
+              "id": 3543,
               "nodeType": "StructuredDocumentation",
               "src": "824:184:15",
               "text": " @notice Checks if a Product is valid based on its properties\n @param product The Product to validate  \n @return isValid True if the Product is valid, false otherwise"
             },
-            "id": 3566,
+            "id": 3576,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -610,41 +610,41 @@
             "nameLocation": "1023:14:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3537,
+              "id": 3547,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3536,
+                  "id": 3546,
                   "mutability": "mutable",
                   "name": "product",
                   "nameLocation": "1053:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3566,
+                  "scope": 3576,
                   "src": "1038:22:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Product_$3532_memory_ptr",
+                    "typeIdentifier": "t_struct$_Product_$3542_memory_ptr",
                     "typeString": "struct ProductLib.Product"
                   },
                   "typeName": {
-                    "id": 3535,
+                    "id": 3545,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 3534,
+                      "id": 3544,
                       "name": "Product",
                       "nameLocations": [
                         "1038:7:15"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 3532,
+                      "referencedDeclaration": 3542,
                       "src": "1038:7:15"
                     },
-                    "referencedDeclaration": 3532,
+                    "referencedDeclaration": 3542,
                     "src": "1038:7:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Product_$3532_storage_ptr",
+                      "typeIdentifier": "t_struct$_Product_$3542_storage_ptr",
                       "typeString": "struct ProductLib.Product"
                     }
                   },
@@ -654,17 +654,17 @@
               "src": "1037:24:15"
             },
             "returnParameters": {
-              "id": 3540,
+              "id": 3550,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3539,
+                  "id": 3549,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3566,
+                  "scope": 3576,
                   "src": "1085:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -673,7 +673,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3538,
+                    "id": 3548,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1085:4:15",
@@ -687,14 +687,14 @@
               ],
               "src": "1084:6:15"
             },
-            "scope": 3567,
+            "scope": 3577,
             "src": "1014:223:15",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3568,
+        "scope": 3578,
         "src": "358:882:15",
         "usedErrors": []
       }
@@ -707,7 +707,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-05-05T14:06:09.802Z",
+  "updatedAt": "2023-05-05T14:16:07.030Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
