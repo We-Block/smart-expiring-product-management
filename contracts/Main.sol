@@ -118,22 +118,43 @@ contract Factory is ERC721, Ownable {
         }
     }
 
+    /** 
+    * @dev Calculates the average price of all products.
+    * @return The average price of all products.
+    */
     function calculateAveragePrice() public view returns (uint256) {
         return products.calculateAveragePrice(tokenCounter);
     }
 
+    /**
+    * @dev Gets all products expiring within a given threshold. 
+    * @param expiryThresholdInDays The number of days within which the products should expire.
+    * @return An array of IDs of the expiring products. 
+    */
     function getExpiringProducts(uint256 expiryThresholdInDays) public view returns (uint256[] memory) {
         return products.getExpiringProducts(tokenCounter, expiryThresholdInDays);
     }
 
+    /**
+    * @dev Gets all products by a given manufacturer.
+    * @param productManufacturer The name of the manufacturer. 
+    * @return An array of IDs of the products by the given manufacturer.
+    */
     function getProductsByManufacturer(string memory productManufacturer) public view returns (uint256[] memory) {
         return products.getProductsByManufacturer(tokenCounter, productManufacturer);
     }
 
+    /**
+    * @dev Sets a discount percentage to be applied to all product prices. 
+    * @param percentage The discount percentage to be applied. 
+    */
     function setDiscount(uint256 percentage) public onlyOwner {
         discountData.setDiscount(percentage);
     }
 
+    /** 
+    * @dev Cancels any applied discount.
+    */
     function cancelDiscount() public onlyOwner {
         discountData.cancelDiscount();
     }
