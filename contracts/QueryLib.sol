@@ -86,5 +86,6 @@ library QueryLib {
             result[i] = productsByManufacturer[i];
         }
         return result;
-    }
+    }   
+
 }

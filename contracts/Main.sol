@@ -39,6 +39,7 @@ contract Factory is ERC721, Ownable {
     }
 
     event ProductCreated(uint256 indexed tokenId, string manufacturer, string name, uint256 manufactureDate, uint256 expiryDate, bool isQualityProduct, uint256 price);
+    event ProductManufacturerChanged(uint256 id, string manufacturer);
 
     /**
     * @dev Creates a new product.

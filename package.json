@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/w33d-w33d/smart-expiring-product-management#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.8.3"
+    "@openzeppelin/contracts": "^4.9.0"
   }
 }
