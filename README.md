@@ -56,4 +56,4 @@ npm test
 
 ## 许可
 
-本项目使用 [MIT](https://choosealicense.com/licenses/mit/) 许可证。
+本项目使用 [GNU Affero General Public License v3.0](https://choosealicense.com/licenses/mit/](https://www.gnu.org/licenses/agpl-3.0.en.html)https://www.gnu.org/licenses/agpl-3.0.en.html) 许可证。
