@@ -44,10 +44,12 @@ library DiscountLib {
     * @return Discounted price
     */
     function calculateDiscountedPrice(DiscountData storage self, uint256 originalPrice) public view returns (uint256) {
-        if (self.isActive) {
-            return originalPrice * (100 - self.percentage) / 100;
-        } else {
+        if (!self.isActive || self.percentage == 0) {
             return originalPrice;
         }
+        
+        // Calculate discount amount first to avoid potential overflow
+        uint256 discountAmount = (originalPrice * self.percentage) / 100;
+        return originalPrice - discountAmount;
     }
 }

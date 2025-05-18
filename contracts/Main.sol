@@ -9,6 +9,9 @@ import "./PriceLib.sol";
 import "./QueryLib.sol";
 import "./ProductOperationsLib.sol";
 import "./DiscountLib.sol";
+import "./CategoryLib.sol";
+import "./AnalyticsLib.sol";
+import "./AccessControlLib.sol";
 
 /**
  * @title Factory
@@ -21,10 +24,19 @@ contract Factory is ERC721, Ownable {
     using QueryLib for mapping(uint256 => ProductLib.Product);
     using ProductOperationsLib for mapping(uint256 => ProductLib.Product);
     using DiscountLib for DiscountLib.DiscountData;
+    using CategoryLib for mapping(uint256 => ProductLib.Product);
+    using AnalyticsLib for mapping(uint256 => ProductLib.Product);
+    using AccessControlLib for AccessControlLib.Roles;
 
+    // State variables
     uint256 public tokenCounter;
     mapping(uint256 => ProductLib.Product) public products;
     DiscountLib.DiscountData public discountData;
+    AccessControlLib.Roles private roles;
+    
+    // For inventory turnover calculation
+    uint256 public lastInventoryUpdateTime;
+    mapping(uint256 => uint256) public productInitialQuantities;
 
     // Constants
     string constant EMPTY_MANUFACTURER = "Manufacturer name should not be empty";
@@ -34,19 +46,50 @@ contract Factory is ERC721, Ownable {
     string constant NO_VALID_PRODUCTS = "No valid products available for analysis.";
     string constant WRONG_PRICE = "Price must be greater than 0";
 
+    // Events
+    event ProductCreated(uint256 indexed tokenId, string manufacturer, string name, uint256 manufactureDate, uint256 expiryDate, bool isQualityProduct, uint256 price, ProductLib.Category category, uint256 quantity);
+    event ProductManufacturerChanged(uint256 id, string manufacturer);
+    event ProductLocationChanged(uint256 id, ProductLib.Location newLocation);
+    event ProductQuantityChanged(uint256 id, uint256 newQuantity);
+    event RoleAssigned(address account, uint8 roleType);
+    event RoleRemoved(address account, uint8 roleType);
+    event PriceCategoryUpdated(ProductLib.Category category, int8 adjustmentPercent);
+
     constructor() ERC721("Factory", "FACTORY") {
         tokenCounter = 0;
+        lastInventoryUpdateTime = block.timestamp;
+        roles.initialize(msg.sender);
     }
 
-    event ProductCreated(uint256 indexed tokenId, string manufacturer, string name, uint256 manufactureDate, uint256 expiryDate, bool isQualityProduct, uint256 price);
-    event ProductManufacturerChanged(uint256 id, string manufacturer);
+    // Role-based modifiers
+    modifier onlyAdmin() {
+        require(roles.isAdmin(msg.sender), "Caller is not an admin");
+       _;
+    }
+    
+    modifier onlyManufacturer() {
+        require(roles.isManufacturer(msg.sender), "Caller is not a manufacturer");
+       _;
+    }
+    
+    modifier onlyDistributor() {
+        require(roles.isDistributor(msg.sender), "Caller is not a distributor");
+       _;
+    }
+    
+    modifier onlyRetailer() {
+        require(roles.isRetailer(msg.sender), "Caller is not a retailer");
+       _;
+    }
 
     /**
-    * @dev Creates a new product.
-    * @param productManufacturer The manufacturer of the product. Must not be empty.
-    * @param productName The name of the product. Must not be empty. 
-    * @param manufactureDate The date the product was manufactured. Must be before the expiryDate.
-    * @param expiryDate The expiry date of the product. Must be after the manufactureDate.
+    * @dev Creates a new product with enhanced fields.
+    * @param productManufacturer The manufacturer of the product.
+    * @param productName The name of the product.
+    * @param manufactureDate The date the product was manufactured.
+    * @param expiryDate The expiry date of the product.
+    * @param category The category of the product.
+    * @param quantity The initial quantity of the product.
     * @param isQualityProduct Whether the product is of high quality or not.
     * @param price The price of the product.
     */
@@ -55,21 +98,46 @@ contract Factory is ERC721, Ownable {
         string calldata productName,
         uint256 manufactureDate,
         uint256 expiryDate,
+        ProductLib.Category category,
+        uint256 quantity,
         bool isQualityProduct,
         uint256 price
-    ) public onlyOwner {
-        require(bytes(productManufacturer).length > 0, EMPTY_MANUFACTURER);
-        require(bytes(productName).length > 0, EMPTY_NAME);
-        require(manufactureDate < expiryDate, INVALID_DATES);
-        require(price > 0, WRONG_PRICE);
+    ) public onlyManufacturer {
+        require(bytes(productManufacturer).length > 0, "Manufacturer name should not be empty");
+        require(bytes(productName).length > 0, "Product name should not be empty");
+        require(manufactureDate < expiryDate, "Manufacture date should be earlier than expiry date");
+        require(price > 0, "Price must be greater than 0");
+        require(quantity > 0, "Quantity must be greater than 0");
 
         uint256 tokenId = tokenCounter;
         _safeMint(msg.sender, tokenId);
 
-        products.createProduct(tokenCounter, productManufacturer, productName, manufactureDate, expiryDate, isQualityProduct, price);
+        products.createProduct(
+            tokenCounter, 
+            productManufacturer, 
+            productName, 
+            manufactureDate, 
+            expiryDate, 
+            category,
+            quantity,
+            isQualityProduct, 
+            price
+        );
+        
+        productInitialQuantities[tokenId] = quantity;
         tokenCounter = tokenCounter.add(1);
 
-        emit ProductCreated(tokenId, productManufacturer, productName, manufactureDate, expiryDate, isQualityProduct, price);
+        emit ProductCreated(
+            tokenId, 
+            productManufacturer, 
+            productName, 
+            manufactureDate, 
+            expiryDate, 
+            isQualityProduct, 
+            price,
+            category,
+            quantity
+        );
     }
 
     /**
@@ -85,6 +153,8 @@ contract Factory is ERC721, Ownable {
                 newProduct.name,
                 newProduct.manufactureDate,
                 newProduct.expiryDate,
+                newProduct.category,
+                newProduct.quantity,
                 newProduct.isQualityProduct,
                 newProduct.price
             );
@@ -158,6 +228,99 @@ contract Factory is ERC721, Ownable {
     */
     function cancelDiscount() public onlyOwner {
         discountData.cancelDiscount();
+    }
+
+    /**
+    * @dev Updates the location of a product in the supply chain.
+    * @param productTokenId The ID of the product.
+    * @param newLocation The new location of the product.
+    */
+    function updateProductLocation(uint256 productTokenId, ProductLib.Location newLocation) public {
+        require(_exists(productTokenId), "Product does not exist");
+        
+        // Role-based access check for location updates
+        if (newLocation == ProductLib.Location.Manufacturer) {
+            require(roles.isManufacturer(msg.sender), "Only manufacturers can set this location");
+        } else if (newLocation == ProductLib.Location.Distributor) {
+            require(roles.isDistributor(msg.sender), "Only distributors can set this location");
+        } else if (newLocation == ProductLib.Location.Retailer) {
+            require(roles.isRetailer(msg.sender), "Only retailers can set this location");
+        }
+        
+        products.updateProductLocation(productTokenId, newLocation);
+        emit ProductLocationChanged(productTokenId, newLocation);
+    }
+    
+    /**
+    * @dev Updates the quantity of a product.
+    * @param productTokenId The ID of the product.
+    * @param newQuantity The new quantity of the product.
+    */
+    function updateProductQuantity(uint256 productTokenId, uint256 newQuantity) public onlyAdmin {
+        require(_exists(productTokenId), "Product does not exist");
+        products.updateProductQuantity(productTokenId, newQuantity);
+        emit ProductQuantityChanged(productTokenId, newQuantity);
+    }
+
+    /**
+    * @dev Gets all products of a specific category.
+    * @param category The category to filter by.
+    * @return An array of IDs of products in the specified category.
+    */
+    function getProductsByCategory(ProductLib.Category category) public view returns (uint256[] memory) {
+        return products.getProductsByCategory(tokenCounter, category);
+    }
+    
+    /**
+    * @dev Updates prices for all products in a specific category.
+    * @param category The category to update.
+    * @param priceAdjustmentPercent The percentage to adjust the price.
+    */
+    function updatePricesByCategory(ProductLib.Category category, int8 priceAdjustmentPercent) public onlyAdmin {
+        products.updatePricesByCategory(tokenCounter, category, priceAdjustmentPercent);
+        emit PriceCategoryUpdated(category, priceAdjustmentPercent);
+    }
+    
+    /**
+    * @dev Calculates the total inventory value.
+    * @return The total value of all products.
+    */
+    function calculateTotalInventoryValue() public view returns (uint256) {
+        return products.calculateTotalInventoryValue(tokenCounter);
+    }
+    
+    /**
+    * @dev Calculates the average shelf life of products.
+    * @return The average shelf life in days.
+    */
+    function calculateAverageShelfLife() public view returns (uint256) {
+        return products.calculateAverageShelfLife(tokenCounter);
+    }
+    
+    /**
+    * @dev Assigns a role to an account.
+    * @param account The account to assign the role to.
+    * @param roleType The type of role (1=admin, 2=manufacturer, 3=distributor, 4=retailer).
+    */
+    function assignRole(address account, uint8 roleType) public onlyAdmin {
+        require(roleType >= 1 && roleType <= 4, "Invalid role type");
+        
+        if (roleType == 1) roles.addAdmin(account);
+        else if (roleType == 2) roles.addManufacturer(account);
+        else if (roleType == 3) roles.addDistributor(account);
+        else if (roleType == 4) roles.addRetailer(account);
+        
+        emit RoleAssigned(account, roleType);
+    }
+    
+    /**
+    * @dev Removes a role from an account.
+    * @param account The account to remove the role from.
+    * @param roleType The type of role to remove.
+    */
+    function removeRole(address account, uint8 roleType) public onlyAdmin {
+        roles.removeRole(account, roleType);
+        emit RoleRemoved(account, roleType);
     }
 }
 

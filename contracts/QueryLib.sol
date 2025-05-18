@@ -40,20 +40,28 @@ library QueryLib {
     function getExpiringProducts(mapping(uint256 => ProductLib.Product) storage products, uint256 tokenCounter, uint256 expiryThresholdInDays) internal view returns (uint256[] memory) {
         require(expiryThresholdInDays > 0, "Threshold must be positive");
 
-        uint256[] memory expiringProductIds = new uint256[](tokenCounter);
-        uint256 nonExpiredProductCount = 0;
-
+        // First pass: count matching products
+        uint256 matchingCount = 0;
         for (uint256 i = 0; i < tokenCounter; i++) {
             uint256 daysUntilExpiry = (products[i].expiryDate - block.timestamp) / SECONDS_IN_DAY;
             if (daysUntilExpiry <= expiryThresholdInDays && block.timestamp < products[i].expiryDate) {
-                expiringProductIds[nonExpiredProductCount] = i;
-                nonExpiredProductCount++;
+                matchingCount++;
             }
         }
 
-        uint256[] memory result = new uint256[](nonExpiredProductCount);
-        for (uint256 i = 0; i < nonExpiredProductCount; i++) {
-            result[i] = expiringProductIds[i];
+        // Create array with exact size needed
+        uint256[] memory result = new uint256[](matchingCount);
+        
+        // Second pass: fill the array
+        if (matchingCount > 0) {
+            uint256 index = 0;
+            for (uint256 i = 0; i < tokenCounter; i++) {
+                uint256 daysUntilExpiry = (products[i].expiryDate - block.timestamp) / SECONDS_IN_DAY;
+                if (daysUntilExpiry <= expiryThresholdInDays && block.timestamp < products[i].expiryDate) {
+                    result[index] = i;
+                    index++;
+                }
+            }
         }
         return result;
     }
@@ -69,21 +77,28 @@ library QueryLib {
     function getProductsByManufacturer(mapping(uint256 => ProductLib.Product) storage products, uint256 tokenCounter, string memory productManufacturer) internal view returns (uint256[] memory) {
         require(bytes(productManufacturer).length > 0, "Manufacturer name cannot be empty");
 
-        uint256[] memory productsByManufacturer = new uint256[](tokenCounter);
-        uint256 productCount = 0;
-
         bytes32 manufacturerHash = keccak256(abi.encodePacked(productManufacturer));
-
+        
+        // First pass: count matching products
+        uint256 matchingCount = 0;
         for (uint256 i = 0; i < tokenCounter; i++) {
             if (keccak256(abi.encodePacked(products[i].manufacturer)) == manufacturerHash) {
-                productsByManufacturer[productCount] = i;
-                productCount++;
+                matchingCount++;
             }
         }
-
-        uint256[] memory result = new uint256[](productCount);
-        for (uint256 i = 0; i < productCount; i++) {
-            result[i] = productsByManufacturer[i];
+        
+        // Create array with exact size needed
+        uint256[] memory result = new uint256[](matchingCount);
+        
+        // Second pass: fill the array
+        if (matchingCount > 0) {
+            uint256 index = 0;
+            for (uint256 i = 0; i < tokenCounter; i++) {
+                if (keccak256(abi.encodePacked(products[i].manufacturer)) == manufacturerHash) {
+                    result[index] = i;
+                    index++;
+                }
+            }
         }
         return result;
     }   

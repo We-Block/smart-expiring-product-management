@@ -30,7 +30,13 @@ library PriceLib {
 
         uint256 remainingDays = (productExpiryDate - block.timestamp) / SECONDS_IN_DAY;
 
-        return remainingDays > THIRTY_DAYS ? PRICE_30_DAYS : (remainingDays > SEVEN_DAYS ? PRICE_7_DAYS : PRICE_LESS_7_DAYS);
+        if (remainingDays > THIRTY_DAYS) {
+            return PRICE_30_DAYS;
+        } else if (remainingDays > SEVEN_DAYS) {
+            return PRICE_7_DAYS;
+        } else {
+            return PRICE_LESS_7_DAYS;
+        }
     }
 
     /**
