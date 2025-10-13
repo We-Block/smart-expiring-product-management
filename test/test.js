@@ -1,56 +1,111 @@
-var Factory = artifacts.require("C:\\Users\\cheny\\Documents\\GitHub\\smart-expiring-product-management\\test\\flatten.sol");
+const Factory = artifacts.require("Factory");
 
-contract('ProductLib', (accounts) => {
-    var creatorAddress = accounts[0];
-    var firstOwnerAddress = accounts[1];
-    var secondOwnerAddress = accounts[2];
-    var externalAddress = accounts[3];
-    var unprivilegedAddress = accounts[4]
-    /* create named accounts for contract roles */
+contract("Factory", (accounts) => {
+    const [owner, manufacturer, distributor, retailer, outsider] = accounts;
+    const categoryFood = 0; // ProductLib.Category.Food
 
-    before(async () => {
-        /* before tests */
-    })
-    
+    let factory;
+
+    const nowInSeconds = () => Math.floor(Date.now() / 1000);
+
+    const defaultProductArgs = () => {
+        const now = nowInSeconds();
+        return {
+            manufacturer: "Acme Corp",
+            name: "Organic Milk",
+            manufactureDate: now - 7 * 86400,
+            expiryDate: now + 45 * 86400,
+            category: categoryFood,
+            quantity: 50,
+            isQualityProduct: true,
+            price: 1_000
+        };
+    };
+
     beforeEach(async () => {
-        /* before each context */
-    })
+        factory = await Factory.new({ from: owner });
+    });
 
-    it('should revert if ...', () => {
-        return ProductLib.deployed()
-            .then(instance => {
-                return instance.publicOrExternalContractMethod(argument1, argument2, {from:externalAddress});
-            })
-            .then(result => {
-                assert.fail();
-            })
-            .catch(error => {
-                assert.notEqual(error.message, "assert.fail()", "Reason ...");
-            });
-        });
+    it("allows the deployer to create a product without extra role setup", async () => {
+        const args = defaultProductArgs();
 
-    context('testgroup - security tests - description...', () => {
-        //deploy a new contract
-        before(async () => {
-            /* before tests */
-            const newProductLib =  await ProductLib.new()
-        })
-        
+        await factory.createProduct(
+            args.manufacturer,
+            args.name,
+            args.manufactureDate,
+            args.expiryDate,
+            args.category,
+            args.quantity,
+            args.isQualityProduct,
+            args.price,
+            { from: owner }
+        );
 
-        beforeEach(async () => {
-            /* before each tests */
-        })
+        const stored = await factory.products(0);
+        assert.equal(stored.name, args.name, "product name should match");
+        assert.equal(stored.manufacturer, args.manufacturer, "manufacturer should match");
+        assert.equal(Number(stored.quantity), args.quantity, "quantity should match");
+    });
 
-        
+    it("enforces role checks when updating product location", async () => {
+        const args = defaultProductArgs();
+        await factory.assignRole(manufacturer, 2, { from: owner }); // grant manufacturer role
+        await factory.createProduct(
+            args.manufacturer,
+            args.name,
+            args.manufactureDate,
+            args.expiryDate,
+            args.category,
+            args.quantity,
+            args.isQualityProduct,
+            args.price,
+            { from: manufacturer }
+        );
 
-        it('fails on initialize ...', async () => {
-            return assertRevert(async () => {
-                await newProductLib.initialize()
-            })
-        })
+        try {
+            await factory.updateProductLocation(0, 1, { from: outsider });
+            assert.fail("expected distributor restriction");
+        } catch (error) {
+            assert(
+                error.message.includes("Only distributors can set this location"),
+                "should revert with distributor message"
+            );
+        }
 
-        it('checks if method returns true', async () => {
-            assert.isTrue(await newProductLib.thisMethodShouldReturnTrue())
-        })
-    })
+        await factory.assignRole(distributor, 3, { from: owner });
+        await factory.updateProductLocation(0, 1, { from: distributor });
+        const stored = await factory.products(0);
+        assert.equal(Number(stored.currentLocation), 1, "location should be Distributor");
+    });
+
+    it("zeroes price for expired products when updating pricing", async () => {
+        const now = nowInSeconds();
+        await factory.createProduct(
+            "Time Capsule",
+            "Expired Juice",
+            now - 30 * 86400,
+            now - 1,
+            categoryFood,
+            10,
+            true,
+            500,
+            { from: owner }
+        );
+
+        await factory.updatePrice(0, { from: owner });
+        const stored = await factory.products(0);
+        assert.equal(Number(stored.price), 0, "expired product price should be zero");
+    });
+
+    it("rejects quantity updates for products that were never created", async () => {
+        try {
+            await factory.updateProductQuantity(99, 5, { from: owner });
+            assert.fail("expected missing product to revert");
+        } catch (error) {
+            assert(
+                error.message.includes("Product does not exist"),
+                "should revert with missing product message"
+            );
+        }
+    });
 });

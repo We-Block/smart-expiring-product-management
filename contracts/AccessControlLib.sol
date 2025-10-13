@@ -117,5 +117,8 @@ library AccessControlLib {
         require(owner != address(0), "Invalid owner address");
         roles.owner = owner;
         roles.admins[owner] = true;
+        roles.manufacturers[owner] = true;
+        roles.distributors[owner] = true;
+        roles.retailers[owner] = true;
     }
 }

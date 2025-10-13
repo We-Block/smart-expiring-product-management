@@ -22,7 +22,7 @@ library DiscountLib {
     * @param self DiscountData storage pointer
     * @param percentage Discount percentage to set
     */
-    function setDiscount(DiscountData storage self, uint256 percentage) public {
+    function setDiscount(DiscountData storage self, uint256 percentage) internal {
         require(percentage > 0 && percentage < 100, "Invalid discount percentage");
         self.isActive = true;
         self.percentage = percentage;
@@ -32,7 +32,7 @@ library DiscountLib {
     * @dev Cancels any active discount
     * @param self DiscountData storage pointer
     */
-    function cancelDiscount(DiscountData storage self) public {
+    function cancelDiscount(DiscountData storage self) internal {
         self.isActive = false;
         self.percentage = 0;
     }
@@ -43,7 +43,7 @@ library DiscountLib {
     * @param originalPrice Original non-discounted price
     * @return Discounted price
     */
-    function calculateDiscountedPrice(DiscountData storage self, uint256 originalPrice) public view returns (uint256) {
+    function calculateDiscountedPrice(DiscountData storage self, uint256 originalPrice) internal view returns (uint256) {
         if (!self.isActive || self.percentage == 0) {
             return originalPrice;
         }

@@ -263,6 +263,17 @@ contract Factory is ERC721, Ownable {
     }
 
     /**
+    * @dev Updates the manufacturer associated with a product record.
+    * @param productTokenId The ID of the product.
+    * @param newManufacturer The new manufacturer name to store.
+    */
+    function updateProductManufacturer(uint256 productTokenId, string calldata newManufacturer) public onlyAdmin {
+        require(_exists(productTokenId), "Product does not exist");
+        products.updateProductManufacturer(productTokenId, newManufacturer);
+        emit ProductManufacturerChanged(productTokenId, newManufacturer);
+    }
+
+    /**
     * @dev Gets all products of a specific category.
     * @param category The category to filter by.
     * @return An array of IDs of products in the specified category.

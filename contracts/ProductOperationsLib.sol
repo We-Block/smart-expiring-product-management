@@ -7,6 +7,31 @@ import "./PriceLib.sol";
 library ProductOperationsLib {
     using ProductLib for ProductLib.Product;
 
+    /**
+    * @dev Checks whether a product exists in storage.
+    * @param products The mapping of all products.
+    * @param tokenId The ID of the product.
+    * @return True if the product exists, false otherwise.
+    */
+    function productExists(
+        mapping(uint256 => ProductLib.Product) storage products,
+        uint256 tokenId
+    ) internal view returns (bool) {
+        return bytes(products[tokenId].name).length > 0;
+    }
+
+    /**
+    * @dev Ensures a product exists before continuing execution.
+    * @param products The mapping of all products.
+    * @param tokenId The ID of the product.
+    */
+    function ensureProductExists(
+        mapping(uint256 => ProductLib.Product) storage products,
+        uint256 tokenId
+    ) internal view {
+        require(productExists(products, tokenId), "Product does not exist");
+    }
+
     /** 
     * @dev Creates a new product.
     * @param products The mapping of all products.
@@ -60,7 +85,7 @@ library ProductOperationsLib {
         uint256 tokenId,
         ProductLib.Location newLocation
     ) internal {
-        require(tokenId < products.length, "Product does not exist");
+        ensureProductExists(products, tokenId);
         products[tokenId].updateLocation(newLocation);
     }
     
@@ -75,7 +100,27 @@ library ProductOperationsLib {
         uint256 tokenId,
         uint256 newQuantity
     ) internal {
-        require(tokenId < products.length, "Product does not exist");
+        ensureProductExists(products, tokenId);
+        require(products[tokenId].quantity != newQuantity, "Quantity unchanged");
         products[tokenId].updateQuantity(newQuantity);
+    }
+
+    /**
+    * @dev Updates the manufacturer name of a product.
+    * @param products The mapping of all products.
+    * @param tokenId The ID of the product.
+    * @param newManufacturer The new manufacturer name.
+    */
+    function updateProductManufacturer(
+        mapping(uint256 => ProductLib.Product) storage products,
+        uint256 tokenId,
+        string memory newManufacturer
+    ) internal {
+        ensureProductExists(products, tokenId);
+        require(bytes(newManufacturer).length > 0, "Manufacturer cannot be empty");
+        bytes32 currentHash = keccak256(abi.encodePacked(products[tokenId].manufacturer));
+        bytes32 newHash = keccak256(abi.encodePacked(newManufacturer));
+        require(newHash != currentHash, "Manufacturer unchanged");
+        products[tokenId].manufacturer = newManufacturer;
     }
 }

@@ -26,7 +26,9 @@ library PriceLib {
      * @return The calculated price
      */
     function calculatePrice(uint256 productExpiryDate) internal view returns (uint256) {
-        require(productExpiryDate > block.timestamp, "Expiry date must be in the future");
+        if (productExpiryDate <= block.timestamp) {
+            return 0;
+        }
 
         uint256 remainingDays = (productExpiryDate - block.timestamp) / SECONDS_IN_DAY;
 
